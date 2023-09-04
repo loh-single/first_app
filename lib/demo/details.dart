@@ -7,7 +7,14 @@ class DetailsPage1 extends StatefulWidget {
   State<DetailsPage1> createState() => DetailsPage1State();
 }
 
+// class DetailsMenu{
+//   String name;
+//   String
+// }
+
 class DetailsPage1State extends State<DetailsPage1> {
+  // final List
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

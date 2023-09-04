@@ -9,7 +9,7 @@ class DialogsCustom {
       actions: [
         ElevatedButton(
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(snackBar(context));
+            ScaffoldMessenger.of(context).showSnackBar(snackBar(context, ''));
             Navigator.pop(context);
           },
           child: const Text('oke'),
@@ -41,9 +41,9 @@ class DialogsCustom {
   //       context, MaterialPageRoute(builder: (context) => const LoginPage()));
   // }
 
-  static snackBar(BuildContext context) {
-    return const SnackBar(
-      content: Text('Ban da nhan oke thanh cong'),
+  static snackBar(BuildContext context, String? s) {
+    return SnackBar(
+      content: Text('$s'),
     );
   }
 }

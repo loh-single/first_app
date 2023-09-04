@@ -39,7 +39,7 @@ class OverlayPage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context)
-                      .showSnackBar(DialogsCustom.snackBar(context));
+                      .showSnackBar(DialogsCustom.snackBar(context, ''));
                   //Navigator.pop(context);
                 },
                 child: const Text('Open SnackBar Dialog'))
