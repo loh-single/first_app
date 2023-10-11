@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'homeworl_ex1.dart';
+import 'package:frist_app/Animation/animations_pages.dart';
 
 void main() {
   return runApp(const HomeWork());
@@ -14,7 +13,7 @@ class HomeWork extends StatelessWidget {
     return MaterialApp(
       title: 'Homework Form and Navidition',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomeWorkEx1(),
+      home: const AnimationPage(),
     );
   }
 }

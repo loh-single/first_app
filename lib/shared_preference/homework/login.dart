@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:frist_app/lession_form_navidi/homework/register_page.dart';
+import 'package:frist_app/shared_preference/homework/register_page.dart';
 
 import 'package:frist_app/lesson_Navigation/dialogs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,12 +14,28 @@ class LoginSate extends State<Login> {
   bool _isRemember = false;
   final TextEditingController _controller1 = TextEditingController();
   final TextEditingController _controller2 = TextEditingController();
-
+  final _keyForm = GlobalKey<FormState>();
   @override
   void dispose() {
     _controller1.dispose();
     _controller2.dispose();
     super.dispose();
+  }
+
+  Future<void> loadDataFromSharedPreference() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    var userName = prefs.getString('userName') ?? '';
+    var password = prefs.getString('password') ?? '';
+    setState(() {
+      _controller1.text = userName;
+      _controller2.text = password;
+    });
+  }
+
+  @override
+  void initState() {
+    loadDataFromSharedPreference();
+    super.initState();
   }
 
   @override
@@ -35,6 +52,7 @@ class LoginSate extends State<Login> {
               //iamge
 
               Form(
+                key: _keyForm,
                 child: Column(
                   children: [
                     TextFormField(
@@ -48,6 +66,12 @@ class LoginSate extends State<Login> {
                         filled: true,
                       ),
                       autofocus: true,
+                      onFieldSubmitted: (value) async {
+                        final SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        await prefs.setString('userName', value);
+                        _keyForm.currentState!.validate();
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -64,6 +88,12 @@ class LoginSate extends State<Login> {
                         filled: true,
                       ),
                       autofocus: false,
+                      onFieldSubmitted: (value) async {
+                        final SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        await prefs.setString('password', value);
+                        _keyForm.currentState!.validate();
+                      },
                     ),
                     const SizedBox(
                       height: 10,

@@ -28,7 +28,7 @@ class StarsRatingState extends State<StarsRating> {
           child: Icon(
             i < starNumber ? Icons.star_rate_rounded : Icons.star_border,
             color: Colors.redAccent,
-            size: MediaQuery.of(context).size.width / 7,
+            size: 20,
           ),
         ),
       );

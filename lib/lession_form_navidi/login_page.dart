@@ -55,24 +55,6 @@ class _LoginPageLesFormState extends State<LoginPageLesForm> {
                 onFieldSubmitted: (value) {
                   _keyForm.currentState!.validate();
                 },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'This value not Empty';
-                  }
-                  RegExp exp = RegExp(r"^[A-Za-z][A-Za-z0-9_]{7,29}$");
-
-                  if (!exp.hasMatch(value)) {
-                    return ' Your user name is INVALID 1';
-                  }
-
-                  // if (value.allMatches('*').toList().isNotEmpty) {
-                  //   return ' Your user name is INVALID 2';
-                  // }
-
-                  // if (value.contains('*')) {
-                  //   return ' Your user name is INVALID 3';
-                  // }
-                },
                 decoration: InputDecoration(
                     hintText: 'User name',
                     helperText: 'You should not use character(#,%,@)',
@@ -96,6 +78,19 @@ class _LoginPageLesFormState extends State<LoginPageLesForm> {
                   if (value == null || value.isEmpty) {
                     return 'This value not Empty';
                   }
+                  RegExp exp = RegExp(r"^[A-Za-z][A-Za-z0-9_]{7,29}$");
+
+                  if (!exp.hasMatch(value)) {
+                    return ' Your user name is INVALID 1';
+                  }
+
+                  // if (value.allMatches('*').toList().isNotEmpty) {
+                  //   return ' Your user name is INVALID 2';
+                  // }
+
+                  // if (value.contains('*')) {
+                  //   return ' Your user name is INVALID 3';
+                  // }
                 },
                 obscureText: true,
                 obscuringCharacter: '*',

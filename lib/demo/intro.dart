@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:frist_app/demo/stars_rating.dart";
 
 int quantity = 1;
 double total = 30.25;
@@ -304,11 +305,7 @@ Widget itemCake() {
             SizedBox(
               width: 5,
             ),
-            Icon(Icons.star, size: 15, color: Colors.orangeAccent),
-            Icon(Icons.star, size: 15, color: Colors.orangeAccent),
-            Icon(Icons.star, size: 15, color: Colors.orangeAccent),
-            Icon(Icons.star, size: 15, color: Colors.orangeAccent),
-            Icon(Icons.star, size: 15, color: Colors.orangeAccent),
+            StarsRating(),
           ],
         ),
       ],
